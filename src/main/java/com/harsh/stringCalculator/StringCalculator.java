@@ -9,10 +9,17 @@ public class StringCalculator {
         if (numbers.isEmpty()) {
             return 0;
         }
-//        base case for single number
-        if(numbers.length()==1){
-            return Integer.parseInt(numbers);
+        String[] numArray = numbers.split(",");
+//        for single number
+        if (numArray.length == 1) {
+            return Integer.parseInt(numArray[0]);
         }
-        return 0;
+//        for more than one number
+        int sum = 0 ;
+        for(String num:numArray){
+            sum+= Integer.parseInt(num);
+        }
+//        return the sum of numbers
+        return sum;
     }
 }
