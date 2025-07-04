@@ -1,5 +1,7 @@
 package com.harsh.stringCalculator;
 
+import java.util.regex.Pattern;
+
 public class StringCalculator {
     public static void main(String[] args) {
         System.out.println("Hello, World!");
@@ -11,8 +13,23 @@ public class StringCalculator {
         }
 //        we split the input string by comma or new line character
 //        and store the result in an array
-//        this gives us a list of
-        String[] numArray = numbers.split(",|\n");
+//        this gives us a list of numbers
+        String delimeters = ",|\n";
+
+        if(numbers.startsWith("//")){
+            int delemiterIndex = numbers.indexOf("\n");
+//            if the string starts with //, we extract the custom delimeter
+            String customDelimeter = numbers.substring(2, delemiterIndex);
+//            quote the custom delimeter to avoid regex issues
+            customDelimeter= Pattern.quote(customDelimeter);
+//            add the custom delimeter to the delimeters string
+            delimeters+= "|" + customDelimeter;
+
+//            trim the delimeter part from the numbers string
+            numbers = numbers.substring(delemiterIndex + 1);
+        }
+//          we seperate the strings by the delimeters
+        String[] numArray = numbers.split(delimeters);
         for(String item : numArray) {
             System.out.println("Item: " + item);
         }

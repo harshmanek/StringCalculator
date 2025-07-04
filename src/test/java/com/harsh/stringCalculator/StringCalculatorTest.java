@@ -40,4 +40,9 @@ public class StringCalculatorTest {
         StringCalculator calc = new StringCalculator();
         assertEquals(6, calc.add("1,2,\n3"));
     }
+    @Test
+    void customDelimeters(){
+        StringCalculator calc = new StringCalculator();
+        assertEquals(6, calc.add("//@\n1@2@3"));
+    }
 }
