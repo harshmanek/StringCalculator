@@ -56,6 +56,7 @@ public class StringCalculator {
                 negatives.add(item);
             }
         }
+//        if the negative list not empty, we throw an exception and include all the negative numbers
         if (!negatives.isEmpty()) {
 //        if there are negative numbers, we throw an exception
             throw new Exception("Negatives Numbers are not allowed: " + String.join(",", negatives));
