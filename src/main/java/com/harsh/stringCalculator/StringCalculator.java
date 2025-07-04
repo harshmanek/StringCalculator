@@ -1,5 +1,6 @@
 package com.harsh.stringCalculator;
 
+import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 public class StringCalculator {
@@ -31,6 +32,7 @@ public class StringCalculator {
         }
 //          we seperate the strings by the delimeters
         String[] numArray = numbers.split(delimeters);
+//        list to contain the negative numbers
         for (String item : numArray) {
             System.out.println("Item: " + item);
         }
@@ -40,6 +42,7 @@ public class StringCalculator {
         }
 //        for more than one number
         int sum = 0;
+        ArrayList<String> negatives = new ArrayList<String>();
         for (String item : numArray) {
             if (item.isEmpty()) {
 //        continue if the item in array is a empty string
@@ -48,9 +51,14 @@ public class StringCalculator {
             if (Integer.parseInt(item) >= 0) {
                 sum += Integer.parseInt(item);
             }
-            else  {
-                throw new Exception("negative numbers not allowed: " + item);
+            if (Integer.parseInt(item) < 0){
+//        if the item is negative, we add it to the negatives list
+                negatives.add(item);
             }
+        }
+        if (!negatives.isEmpty()) {
+//        if there are negative numbers, we throw an exception
+            throw new Exception("Negatives Numbers are not allowed: " + String.join(",", negatives));
         }
 //        return the sum of numbers
         return sum;

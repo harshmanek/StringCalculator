@@ -75,10 +75,11 @@ public class StringCalculatorTest {
     void negativeNumbersSumThrowException() {
         StringCalculator calc = new StringCalculator();
         try {
-            calc.add("//#\n1#2#3");
+            calc.add("-1,-2,-3");
         } catch (Exception e) {
-            assertEquals("negative numbers not allowed: -2", e.getMessage());
+            assertEquals("Negatives Numbers are not allowed: -1,-2,-3", e.getMessage());
             return; // Test passes if exception is thrown
         }
     }
+
 }
