@@ -72,6 +72,15 @@ public class StringCalculatorTest {
     }
 
     @Test
+    void customDelimetersWithMultipleCharacters(){
+        StringCalculator calc = new StringCalculator();
+        try {
+            assertEquals(6, calc.add("//[^^]\n1^^2^^3"));
+        } catch (Exception e) {
+            throw new RuntimeException("Unexpected exception for custom delimeters with multiple characters: " + e.getMessage());
+        }
+    }
+    @Test
     void negativeNumberSumThrowException() {
         StringCalculator calc = new StringCalculator();
         try {

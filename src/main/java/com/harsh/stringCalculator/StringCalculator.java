@@ -18,20 +18,28 @@ public class StringCalculator {
 
 //        we check if the input contains a custom delimeter
         if (numbers.startsWith("//")) {
-
+            if (numbers.startsWith("//[") && numbers.contains("]")) {
+                int startIndex = numbers.indexOf("[") + 1;
+                int endIndex = numbers.indexOf("]");
+                String customDelimeter = numbers.substring(startIndex, endIndex);
+                customDelimeter = Pattern.quote(customDelimeter);
+                delimeters += "|" + customDelimeter;
+                numbers = numbers.substring(endIndex + 1);
+            } else {
 //          we find the index of the first new line character
-            int delemiterIndex = numbers.indexOf("\n");
+                int delemiterIndex = numbers.indexOf("\n");
 
-            String customDelimeter = numbers.substring(2, delemiterIndex);
+                String customDelimeter = numbers.substring(2, delemiterIndex);
 
 //            quote the custom delimeter to avoid regex issues
-            customDelimeter = Pattern.quote(customDelimeter);
+                customDelimeter = Pattern.quote(customDelimeter);
 
 //            add the custom delimeter to the delimeters string
-            delimeters += "|" + customDelimeter;
+                delimeters += "|" + customDelimeter;
 
 //            trim the delimeter part from the numbers string
-            numbers = numbers.substring(delemiterIndex + 1);
+                numbers = numbers.substring(delemiterIndex + 1);
+            }
         }
 //          we seperate the strings by the delimeters
         String[] numArray = numbers.split(delimeters);
@@ -51,7 +59,7 @@ public class StringCalculator {
                 continue;
             }
 
-            if(Integer.parseInt(item) >= 1000) {
+            if (Integer.parseInt(item) >= 1000) {
 //        if the item is greater than 1000, we ignore it
                 continue;
             }
