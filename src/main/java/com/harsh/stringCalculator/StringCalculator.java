@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 public class StringCalculator {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
-    }
 
     public int add(String numbers) throws Exception {
+
 //        base case for empty string
         if (numbers.isEmpty()) {
             return 0;
@@ -18,12 +16,17 @@ public class StringCalculator {
 //        this gives us a list of numbers
         String delimeters = ",|\n";
 
+//        we check if the input contains a custom delimeter
         if (numbers.startsWith("//")) {
+
+//          we find the index of the first new line character
             int delemiterIndex = numbers.indexOf("\n");
-//            if the string starts with //, we extract the custom delimeter
+
             String customDelimeter = numbers.substring(2, delemiterIndex);
+
 //            quote the custom delimeter to avoid regex issues
             customDelimeter = Pattern.quote(customDelimeter);
+
 //            add the custom delimeter to the delimeters string
             delimeters += "|" + customDelimeter;
 
@@ -32,26 +35,32 @@ public class StringCalculator {
         }
 //          we seperate the strings by the delimeters
         String[] numArray = numbers.split(delimeters);
-//        list to contain the negative numbers
-        for (String item : numArray) {
-            System.out.println("Item: " + item);
-        }
+
 //        for single number
         if (numArray.length == 1 && Integer.parseInt(numArray[0]) >= 0) {
             return Integer.parseInt(numArray[0]);
         }
 //        for more than one number
         int sum = 0;
+
+//    list of negative numbers
         ArrayList<String> negatives = new ArrayList<String>();
         for (String item : numArray) {
             if (item.isEmpty()) {
 //        continue if the item in array is a empty string
                 continue;
             }
+
+            if(Integer.parseInt(item) >= 1000) {
+//        if the item is greater than 1000, we ignore it
+                continue;
+            }
+
+//        if the item is positive, we add it to the sum
             if (Integer.parseInt(item) >= 0) {
                 sum += Integer.parseInt(item);
             }
-            if (Integer.parseInt(item) < 0){
+            if (Integer.parseInt(item) < 0) {
 //        if the item is negative, we add it to the negatives list
                 negatives.add(item);
             }

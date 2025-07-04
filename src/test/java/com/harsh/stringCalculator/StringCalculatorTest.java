@@ -92,4 +92,13 @@ public class StringCalculatorTest {
         }
     }
 
+    @Test
+    void ignoreLargeNumbers(){
+        StringCalculator calc = new StringCalculator();
+        try {
+            assertEquals(2, calc.add("1001,2"));
+        } catch (Exception e) {
+            throw new RuntimeException("Unexpected exception for ignoring large numbers: " + e.getMessage());
+        }
+    }
 }
