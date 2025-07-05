@@ -92,6 +92,16 @@ public class StringCalculatorTest {
     }
 
     @Test
+    void customDelimetersWithMultipleCharactersAndMultipleDelimetersWithNewLine() {
+        StringCalculator calc = new StringCalculator();
+        try {
+            assertEquals(6, calc.add("//[^^][--]\n1^^2\n--3"));
+        } catch (Exception e) {
+            throw new RuntimeException("Unexpected exception for custom delimeters with multiple characters and multiple delimeters with new line: " + e.getMessage());
+        }
+    }
+
+    @Test
     void negativeNumberSumThrowException() {
         StringCalculator calc = new StringCalculator();
         try {
