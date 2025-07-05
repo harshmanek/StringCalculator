@@ -35,19 +35,15 @@ public class StringCalculator {
                 delimeters += "|" + String.join("|", delimetersList);
             } else {
                 delimeterSection = Pattern.quote(delimeterSection);// quote the custom delimeter to avoid regex issues
-                System.out.println("Custom Delimeter: " + delimeterSection);
                 // if the custom delimeter is not in square brackets, we add it to the delimeters
                 delimeters += "|" + delimeterSection;
             }
             // we remove the custom delimeter section from the input string
             numbers = numbers.substring(indexOfNewLine + 1);
         }
-        System.out.println("Delimeters: " + delimeters);
         //          we seperate the strings by the delimeters
         String[] numArray = numbers.split(delimeters);
 
-//        print the numbers array for debugging
-//        System.out.println("Numbers Array: " + String.join(", ", numArray));
 //        for single number
         if (numArray.length == 1 && Integer.parseInt(numArray[0]) >= 0) {
             return Integer.parseInt(numArray[0]);
