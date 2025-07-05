@@ -65,7 +65,7 @@ public class StringCalculatorTest {
     void customDelimeters() {
         StringCalculator calc = new StringCalculator();
         try {
-            assertEquals(6, calc.add("//@\n1@2@3"));
+            assertEquals(6, calc.add("//#\n1#2#3"));
         } catch (Exception e) {
             throw new RuntimeException("Unexpected exception for custom delimeters: " + e.getMessage());
         }
@@ -80,6 +80,17 @@ public class StringCalculatorTest {
             throw new RuntimeException("Unexpected exception for custom delimeters with multiple characters: " + e.getMessage());
         }
     }
+
+    @Test
+    void customDelimetersWithMultipleCharactersAndMultipleDelimeters(){
+        StringCalculator calc = new StringCalculator();
+        try {
+            assertEquals(6, calc.add("//[^^][--]\n1^^2--3"));
+        } catch (Exception e) {
+            throw new RuntimeException("Unexpected exception for custom delimeters with multiple characters and multiple delimeters: " + e.getMessage());
+        }
+    }
+
     @Test
     void negativeNumberSumThrowException() {
         StringCalculator calc = new StringCalculator();
