@@ -62,6 +62,9 @@ public class Example {
 -  **Negative numbers**: Throws exception listing all negatives
 -  **Numbers >= 1000**: Ignored in the sum
 
+## Screenshot 
+- ![image](https://github.com/user-attachments/assets/eef0dea2-162e-4074-a5be-d19103db0c24)
+
 ##  Example Test Cases
 
 | Input                  | Output / Behavior                |
