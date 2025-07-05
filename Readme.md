@@ -2,15 +2,15 @@
 
 A simple, robust Java string calculator with full Maven and JUnit support.
 
-## 🚀 Features
+## Features
 
-- 🆓 **Handles empty input**: Returns 0 for an empty string.
-- ➕ **Sum numbers**: Adds numbers separated by commas (`,`) or newlines (`\n`).
-- 🏷️ **Custom delimiters**: Supports custom single, multi-character, and multiple delimiters (e.g. `//[***][%%]\n1***2%%3`).
-- 🚫 **Negative number detection**: Throws an exception listing all negative numbers in the input.
-- ⏩ **Ignores large numbers**: Numbers >= 1000 are ignored in the sum.
+-  **Handles empty input**: Returns 0 for an empty string.
+-  **Sum numbers**: Adds numbers separated by commas (`,`) or newlines (`\n`).
+-  **Custom delimiters**: Supports custom single, multi-character, and multiple delimiters (e.g. `//[***][%%]\n1***2%%3`).
+-  **Negative number detection**: Throws an exception listing all negative numbers in the input.
+-  **Ignores large numbers**: Numbers >= 1000 are ignored in the sum.
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 StringCalculator/
@@ -21,24 +21,24 @@ StringCalculator/
 └── Readme.md
 ```
 
-## 🛠️ Requirements
+## Requirements
 
 - Java 21
 - Maven
 
-## 🏗️ Build
+## Build
 
 ```sh
 mvn clean install
 ```
 
-## 🧪 Run Tests
+## Run Tests
 
 ```sh
 mvn test
 ```
 
-## 📝 Usage Example
+## Usage Example
 
 ```java
 import com.harsh.stringCalculator.StringCalculator;
@@ -52,17 +52,17 @@ public class Example {
 }
 ```
 
-## ✅ Test Cases
+## Test Cases
 
-- 🆓 **Empty string**: Returns 0
-- 1️⃣ **Single number**: Returns the number itself
-- ➕ **Two or more numbers**: Returns their sum
-- 🏷️ **Custom delimiter**: Handles custom single/multi/multiple delimiters
-- 🔢 **Newline as delimiter**: Handles newlines as valid delimiters
-- 🚫 **Negative numbers**: Throws exception listing all negatives
-- ⏩ **Numbers >= 1000**: Ignored in the sum
+-  **Empty string**: Returns 0
+-  **Single number**: Returns the number itself
+-  **Two or more numbers**: Returns their sum
+-  **Custom delimiter**: Handles custom single/multi/multiple delimiters
+-  **Newline as delimiter**: Handles newlines as valid delimiters
+-  **Negative numbers**: Throws exception listing all negatives
+-  **Numbers >= 1000**: Ignored in the sum
 
-## 📚 Example Test Cases
+##  Example Test Cases
 
 | Input                  | Output / Behavior                |
 | ---------------------- | -------------------------------- |
@@ -76,6 +76,6 @@ public class Example {
 | `"-1,2"`               | Exception: Negatives not allowed |
 | `"2,1001"`             | `2`                              |
 
-## 🧑‍💻 Author
+## Author
 
 - Harsh
